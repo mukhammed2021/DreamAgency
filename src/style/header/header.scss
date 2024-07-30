@@ -1,0 +1,283 @@
+.header {
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 50;
+   background-color: var(--color-white);
+   // .header__container
+   &__container {
+      display: flex;
+      align-items: center;
+      column-gap: toRem(15);
+      justify-content: space-between;
+      min-height: toRem(118);
+      padding-block: toRem(5);
+   }
+   // .header__menu
+   &__menu {
+      flex: 1;
+   }
+   // .header__logo
+   &__logo {
+      flex: 1;
+      font-size: toRem(24);
+      font-weight: 700;
+      line-height: 133.333333%; /* 32/24 */
+      transition: color 0.3s;
+      @media (max-width: toEm(991.98)) {
+         z-index: 2;
+         .active & {
+            color: var(--color-white);
+         }
+      }
+      @media (max-width: toEm(425)) {
+         font-size: toRem(20);
+      }
+      @media (max-width: toEm(375)) {
+         font-size: toRem(16);
+      }
+   }
+   // .header__soc1al
+   &__soc1al {
+      @media (max-width: toEm(991.98)) {
+         z-index: 2;
+      }
+   }
+}
+
+.menu {
+   @media (max-width: toEm(991.98)) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      overflow: auto;
+      background-color: var(--color-dark);
+      color: var(--color-white);
+      transition: height 0.3s;
+      &::before {
+         content: "";
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 0;
+         background-color: var(--color-dark);
+         z-index: 1;
+         transition: height 0.3s;
+         .active & {
+            height: toRem(118);
+         }
+      }
+      .active & {
+         height: 100%;
+      }
+   }
+   // .menu__list
+   &__list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: toRem(40);
+      @media (max-width: toEm(991.98)) {
+         flex-direction: column;
+         align-items: flex-start;
+         padding: toRem(118) toRem(15) toRem(30) toRem(15);
+      }
+   }
+   // .menu__item
+   &__item {
+   }
+   // .menu__link
+   &__link {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      font-size: toRem(16);
+      position: relative;
+      &::before {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 0;
+         height: toRem(2);
+         background-color: var(--color-yellow);
+      }
+      &::after {
+         content: attr(data-text);
+         content: attr(data-text) / "";
+         height: 0;
+         visibility: hidden;
+         overflow: hidden;
+         user-select: none;
+         pointer-events: none;
+         font-weight: 600;
+         @media speech {
+            display: none;
+         }
+      }
+      @media (max-width: toEm(991.98)) {
+         font-size: toRem(30);
+      }
+      @media (any-hover: hover) {
+         &:hover {
+            font-weight: 600;
+            &::before {
+               width: 50%;
+            }
+         }
+      }
+   }
+}
+
+.soc1al {
+   display: flex;
+   align-items: center;
+   gap: toRem(14);
+   // .soc1al__item
+   &__item {
+   }
+   // .soc1al__link
+   &__link {
+      @include flex-center(true);
+      width: toRem(43);
+      height: toRem(49);
+      background-image: url("/img/icons/circle.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      svg {
+         @include square(20);
+         transition: color 0.3s;
+         @media (max-width: toEm(991.98)) {
+            transition: color 0.3s;
+            .active & {
+               color: var(--color-white);
+            }
+         }
+         @media (max-width: toEm(375)) {
+            @include square(15);
+         }
+         @media (any-hover: hover) {
+            &:hover {
+               color: var(--color-yellow);
+            }
+         }
+      }
+      @media (max-width: toEm(425)) {
+         width: toRem(38);
+         height: toRem(44);
+      }
+      @media (max-width: toEm(375)) {
+         width: toRem(30);
+         height: toRem(36);
+      }
+   }
+}
+
+.icon-menu {
+   display: none;
+   @media (max-width: toEm(991.98)) {
+      @include reset-button;
+      position: relative;
+      z-index: 2;
+      width: toRem(35);
+      height: toRem(29);
+      cursor: pointer;
+      &,
+      span {
+         display: inline-block;
+      }
+      span {
+         position: absolute;
+         left: 0;
+         width: 100%;
+         height: toRem(4);
+         background-color: var(--color-dark);
+         border-radius: toRem(4);
+         transition: background-color 0.3s;
+         .active & {
+            background-color: var(--color-white);
+         }
+      }
+      span:nth-of-type(1) {
+         top: 0;
+      }
+      span:nth-of-type(2) {
+         top: toRem(12);
+      }
+      span:nth-of-type(3) {
+         bottom: 0;
+      }
+   }
+}
+
+#menu {
+   span:nth-of-type(1) {
+      animation: bar-1 0.7s forwards;
+      .active & {
+         animation: active-1 0.7s forwards;
+      }
+   }
+   span:nth-of-type(2) {
+      opacity: 1;
+      transition: all 0.3s 0.3s;
+      .active & {
+         opacity: 0;
+      }
+   }
+   span:nth-of-type(3) {
+      animation: bar-3 0.7s forwards;
+      .active & {
+         animation: active-3 0.7s forwards;
+      }
+   }
+}
+
+@keyframes bar-1 {
+   0% {
+      transform: translateY(toRem(12)) rotate(45deg);
+   }
+   50% {
+      transform: translateY(toRem(12)) rotate(0);
+   }
+   100% {
+      transform: translateY(0) rotate(0);
+   }
+}
+@keyframes bar-3 {
+   0% {
+      transform: translateY(toRem(-12)) rotate(-45deg);
+   }
+   50% {
+      transform: translateY(toRem(-12)) rotate(0);
+   }
+   100% {
+      transform: translateY(0) rotate(0);
+   }
+}
+@keyframes active-1 {
+   0% {
+      transform: translateY(0) rotate(0);
+   }
+   50% {
+      transform: translateY(toRem(12)) rotate(0);
+   }
+   100% {
+      transform: translateY(toRem(12)) rotate(45deg);
+   }
+}
+@keyframes active-3 {
+   0% {
+      transform: translateY(0) rotate(0);
+   }
+   50% {
+      transform: translateY(toRem(-12)) rotate(0);
+   }
+   100% {
+      transform: translateY(toRem(-12)) rotate(-45deg);
+   }
+}

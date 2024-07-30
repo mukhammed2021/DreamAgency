@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap");
+//========================================================================================================================================================
+@import "reset.scss";
+@import "variables.scss";
+@import "mixins.scss";
+@import "global.scss";
+@import "common.scss";
+//========================================================================================================================================================
+@import "./header/header.scss";
+@import "./footer/footer.scss";
+//========================================================================================================================================================
+@import "./blocks/hero.scss";
+@import "./blocks/what-we-do.scss";
+@import "./blocks/about-us.scss";

@@ -1,0 +1,62 @@
+.title {
+   // font-size: toRem(48);
+   @include fluid-value("font-size", 48, 24, 1300, 320);
+   line-height: 106%;
+   color: var(--color-dark);
+   font-weight: 700;
+   span {
+      font-weight: 300;
+      span {
+         display: inline-flex;
+         height: toRem(10);
+         background-color: var(--color-yellow);
+         align-items: flex-end;
+      }
+   }
+   // .title--center
+   &--center {
+      text-align: center;
+   }
+}
+
+.logo {
+   font-family: "Playfair Display";
+}
+
+.button {
+   display: inline-flex;
+   justify-content: center;
+   @include reset-button;
+   text-transform: uppercase;
+   background-color: var(--color-dark);
+   color: var(--color-white);
+   font-weight: 700;
+   line-height: 137%;
+   border-radius: toRem(10);
+   padding: toRem(20) toRem(50);
+   transition:
+      background-color 0.3s,
+      color 0.3s;
+   @media (any-hover: hover) {
+      &:hover {
+         background-color: var(--color-yellow);
+         color: var(--color-dark);
+      }
+   }
+   @media (max-width: toEm(479.98)) {
+      width: 100%;
+   }
+}
+
+.visually-hidden {
+   position: absolute !important;
+   width: 1px !important;
+   height: 1px !important;
+   margin: -1px !important;
+   border: 0 !important;
+   padding: 0 !important;
+   white-space: nowrap !important;
+   clip-path: inset(100%) !important;
+   clip: rect(0 0 0 0) !important;
+   overflow: hidden !important;
+}

@@ -1,0 +1,31 @@
+body {
+   display: flex;
+   flex-direction: column;
+   font-size: toRem(17);
+   font-family: "Hind Vadodara", sans-serif;
+   color: var(--color-dark);
+}
+
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
+[class*="__container"] {
+   max-width: toRem(1330);
+   margin-inline: auto;
+   padding-inline: toRem(15);
+}
+
+.wrapper {
+   flex: 1 1 auto;
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
+   overflow: hidden;
+}
+
+.main {
+   flex-grow: 1;
+}
+

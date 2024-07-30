@@ -1,0 +1,54 @@
+.about-us {
+   // .about-us__container
+   &__container {
+      display: flex;
+      align-items: center;
+      gap: toRem(15);
+      justify-content: space-between;
+   }
+   // .about-us__image
+   &__image {
+      flex: 0 1 toRem(659);
+      clip-path: url(#clip-image);
+      position: relative;
+      svg {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+      }
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         aspect-ratio: 659 / 605;
+      }
+   }
+   // .about-us__content
+   &__content {
+      flex: 0 1 toRem(517);
+   }
+   // .about-us__title
+   &__title {
+      &:not(:last-child) {
+         margin-bottom: toRem(22);
+      }
+   }
+   // .about-us__text
+   &__text {
+      color: rgba(51, 27, 59, 0.66);
+      line-height: 146%;
+      p {
+         &:not(:last-child) {
+            margin-bottom: toRem(9);
+         }
+      }
+      &:not(:last-child) {
+         margin-bottom: toRem(37);
+      }
+   }
+   // .about-us__button
+   &__button {
+   }
+}

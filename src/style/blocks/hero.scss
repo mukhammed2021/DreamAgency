@@ -1,0 +1,97 @@
+.hero {
+   padding-top: toRem(169);
+   @include fluid-value("padding-bottom", 74, 37, 1300, 320);
+   @media (max-width: toEm(767.98)) {
+      padding-top: toRem(140);
+   }
+   // .hero__container
+   &__container {
+      display: flex;
+      gap: toRem(15);
+      align-items: center;
+      justify-content: space-between;
+      @media (max-width: toEm(767.98)) {
+         flex-direction: column;
+      }
+   }
+   // .hero__content
+   &__content {
+      @media (min-width: toEm(768)) {
+         flex: 0 1 toRem(517);
+      }
+   }
+   // .hero__title
+   &__title {
+      @include fluid-value("font-size", 87, 44, 1300, 767.98);
+      span span {
+         height: toRem(20);
+      }
+      &:not(:last-child) {
+         margin-bottom: toRem(27);
+      }
+   }
+   // .hero__text
+   &__text {
+      color: rgba(51, 27, 59, 0.66);
+      line-height: 146%;
+      &:not(:last-child) {
+         margin-bottom: toRem(31);
+      }
+   }
+   // .hero__button
+   &__button {
+   }
+   // .hero__image
+   &__image {
+      position: relative;
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         z-index: 0;
+      }
+      &::before {
+         top: -10.789981%; /* 56/519 */
+         left: 18.446602%; /* 133/721 */
+         width: 61.581137%; /* 444/721 */
+         height: 121.194605%; /* 629/519 */
+         background: url("img/hero/decor/02.svg") 0 0 / contain no-repeat;
+      }
+      &::after {
+         z-index: -1;
+         top: -53.179191%; /* 276/519 */
+         right: -43.411928%; /* 313/721 */
+         width: 120.249653%; /* 867/721 */
+         height: 157.803468%; /* 819/519 */
+         background: url("img/hero/decor/03.svg") 0 0 / contain no-repeat;
+      }
+   }
+   // .hero__image-decor
+   &__image-decor {
+      max-width: toRem(721);
+      position: relative;
+      &::before {
+         content: "";
+         position: absolute;
+         z-index: -1;
+         top: 6.358382%; /* 33/519 */
+         left: 0;
+         width: 80.698217%; /* 581/729 */
+         height: 95.953757%; /* 498/519 */
+         background: url("img/hero/decor/01.svg") 0 0 / contain no-repeat;
+      }
+      img {
+         clip-path: url(#clip);
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         aspect-ratio: 721 / 519;
+      }
+   }
+}
+
+.svg {
+   position: absolute;
+   width: 0;
+   height: 0;
+}
