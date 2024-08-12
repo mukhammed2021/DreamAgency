@@ -37,3 +37,45 @@ if (document.querySelector(".business__slider")) {
       },
    });
 }
+
+if (document.querySelector(".recent-work__slider")) {
+   new Swiper(".recent-work__slider", {
+      modules: [Navigation],
+      navigation: {
+         prevEl: ".recent-work__button--prev",
+         nextEl: ".recent-work__button--next",
+      },
+      spaceBetween: 43,
+      slidesPerView: 2.6,
+      speed: 800,
+      observer: true,
+      observeParents: true,
+      // centeredSlides: true,
+      breakpoints: {
+         320: {
+            spaceBetween: 20,
+            slidesPerView: 1,
+         },
+         500: {
+            spaceBetween: 28,
+            slidesPerView: 1.2,
+         },
+         720: {
+            spaceBetween: 30,
+            slidesPerView: 1.5,
+         },
+         992: {
+            spaceBetween: 40,
+            slidesPerView: 2,
+         },
+         1024: {
+            spaceBetween: 40,
+            slidesPerView: 2.3,
+         },
+         1300: {
+            spaceBetween: 43,
+            slidesPerView: 2.6,
+         },
+      },
+   });
+}
