@@ -1,0 +1,179 @@
+.recent-work {
+   // .recent-work__container
+   &__container {
+      padding-top: toRem(42);
+      padding-bottom: toRem(32);
+      position: relative;
+      &::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         @include fluid-value("left", 139, 0, 1300, 479.98);
+         width: 100vw;
+         height: 100%;
+         background-color: rgba(255, 222, 212, 0.3);
+         z-index: -1;
+         border-radius: toRem(400) 0 0 0;
+      }
+   }
+   // .recent-work__header
+   &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: toRem(20);
+      &:not(:last-child) {
+         @include fluid-value("margin-bottom", 80, 40, 1300, 320);
+      }
+      @media (max-width: toEm(767.98)) {
+         flex-direction: column;
+      }
+   }
+   // .recent-work__title
+   &__title {
+      @media (min-width: toEm(768)) {
+         flex: 0 1 toRem(380);
+      }
+   }
+   // .recent-work__text
+   &__text {
+      @include fluid-value("font-size", 17, 14, 1300, 320);
+      line-height: 146%;
+      @media (min-width: toEm(768)) {
+         flex: 0 1 toRem(515);
+      }
+   }
+   // .recent-work__slider
+   &__slider {
+      @include fluid-value("margin-left", 142, 0, 1300, 479.98);
+      @media (max-width: toEm(374.98)) {
+         margin-inline: toRem(-15);
+      }
+   }
+   // .recent-work__wrapper
+   &__wrapper {
+      @include fluid-value("padding-left", 76, 0, 1300, 479.98);
+      &:not(:last-child) {
+         margin-bottom: toRem(18);
+      }
+   }
+   // .recent-work__slide
+   &__slide {
+   }
+   // .recent-work__actions
+   &__actions {
+      display: flex;
+      align-items: center;
+      gap: toRem(15);
+      @media (max-width: toEm(374.98)) {
+         margin-left: toRem(15);
+      }
+   }
+   // .recent-work__button
+   &__button {
+      @include reset-button;
+      @include circle(35);
+      @include flex-center(true);
+      border: toRem(2) solid var(--color-black);
+      transition: all 0.3s;
+      svg {
+         width: toRem(10);
+         height: toRem(16);
+      }
+      // .recent-work__button--prev
+      &--prev {
+         rotate: 180deg;
+      }
+      // .recent-work__button--next
+      &--next {
+      }
+      &.swiper-button-disabled {
+         cursor: auto;
+         border-color: rgba(0, 0, 0, 0.33);
+      }
+      @media (any-hover: hover) {
+         &:hover:not(.swiper-button-disabled) {
+            background-color: var(--color-yellow);
+         }
+      }
+   }
+}
+
+.slide-work {
+   background-color: var(--color-white);
+   border-radius: toRem(10);
+   box-shadow: 0 0 toRem(9) toRem(2) rgba(0, 0, 0, 0.05);
+   padding-inline: toRem(13);
+   padding-top: toRem(24);
+   padding-bottom: toRem(35);
+
+   display: flex;
+   flex-direction: column;
+   height: auto;
+   // .slide-work__images
+   &__images {
+      display: flex;
+      justify-content: space-between;
+      column-gap: toRem(15);
+      &:not(:last-child) {
+         margin-bottom: toRem(33);
+      }
+   }
+   // .slide-work__desktop-image, .slide-work__mobile-image
+   &__desktop-image,
+   &__mobile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      box-shadow: 0 toRem(1) toRem(4) 0 rgba(0, 0, 0, 0.25);
+      border-radius: toRem(10);
+   }
+   // .slide-work__item-desktop-image
+   &__item-desktop-image {
+      flex: 1 1 auto;
+   }
+   // .slide-work__desktop-image
+   &__desktop-image {
+      aspect-ratio: 286 / 238;
+   }
+   // .slide-work__item-mobile-image
+   &__item-mobile-image {
+      flex: 0 0 toRem(89);
+   }
+   // .slide-work__mobile-image
+   &__mobile-image {
+      aspect-ratio: 89 / 238;
+   }
+   // .slide-work__content
+   &__content {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      column-gap: toRem(15);
+   }
+   // .slide-work__title
+   &__title {
+      font-weight: 700;
+      font-size: toRem(24);
+      line-height: 146%;
+   }
+   // .slide-work__link
+   &__link {
+      translate: 0 -4px;
+      text-align: center;
+      white-space: nowrap;
+      font-size: toRem(14);
+      font-weight: 500;
+      line-height: 146%;
+      padding: toRem(2) toRem(12);
+      border: toRem(1) solid #343434;
+      border-radius: toRem(100);
+      transition: background-color 0.3s;
+      @media (any-hover: hover) {
+         &:hover {
+            background-color: var(--color-yellow);
+         }
+      }
+   }
+}
