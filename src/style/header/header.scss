@@ -27,7 +27,7 @@
       transition: color 0.3s;
       @media (max-width: toEm(991.98)) {
          z-index: 2;
-         .active & {
+         .menu-open & {
             color: var(--color-white);
          }
       }
@@ -67,11 +67,11 @@
          background-color: var(--color-dark);
          z-index: 1;
          transition: height 0.3s;
-         .active & {
+         .menu-open & {
             height: toRem(118);
          }
       }
-      .active & {
+      .menu-open & {
          height: 100%;
       }
    }
@@ -154,7 +154,7 @@
          transition: color 0.3s;
          @media (max-width: toEm(991.98)) {
             transition: color 0.3s;
-            .active & {
+            .menu-open & {
                color: var(--color-white);
             }
          }
@@ -199,7 +199,7 @@
          background-color: var(--color-dark);
          border-radius: toRem(4);
          transition: background-color 0.3s;
-         .active & {
+         .menu-open & {
             background-color: var(--color-white);
          }
       }
@@ -218,21 +218,21 @@
 #menu {
    span:nth-of-type(1) {
       animation: bar-1 0.7s forwards;
-      .active & {
-         animation: active-1 0.7s forwards;
+      .menu-open & {
+         animation: menu-open-1 0.7s forwards;
       }
    }
    span:nth-of-type(2) {
       opacity: 1;
       transition: all 0.3s 0.3s;
-      .active & {
+      .menu-open & {
          opacity: 0;
       }
    }
    span:nth-of-type(3) {
       animation: bar-3 0.7s forwards;
-      .active & {
-         animation: active-3 0.7s forwards;
+      .menu-open & {
+         animation: menu-open-3 0.7s forwards;
       }
    }
 }
@@ -259,7 +259,7 @@
       transform: translateY(0) rotate(0);
    }
 }
-@keyframes active-1 {
+@keyframes menu-open-1 {
    0% {
       transform: translateY(0) rotate(0);
    }
@@ -270,7 +270,7 @@
       transform: translateY(toRem(12)) rotate(45deg);
    }
 }
-@keyframes active-3 {
+@keyframes menu-open-3 {
    0% {
       transform: translateY(0) rotate(0);
    }
