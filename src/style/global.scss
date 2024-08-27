@@ -29,3 +29,28 @@ a {
    flex-grow: 1;
 }
 
+// lock
+.lock {
+   overflow: hidden;
+} 
+
+// Scrollbar
+::-webkit-scrollbar {
+   width: toRem(6);
+}
+
+::-webkit-scrollbar-track {
+   background: var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--color-yellow);
+}
+
+// For Firefox
+@supports (scrollbar-color: var(--color-yellow) var(--color-dark)) {
+   * {
+      scrollbar-color: var(--color-yellow) var(--color-dark);
+      scrollbar-width: thin;
+   }
+}
