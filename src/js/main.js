@@ -5,6 +5,12 @@ import "../style/style.scss";
 const menuIcon = document.getElementById("menu");
 menuIcon.addEventListener("click", () => {
    const header = document.querySelector(".header");
-   header.classList.toggle("active");
+   header.classList.toggle("menu-open");
+   bodyLock();
 });
+
+function bodyLock() {
+   document.body.classList.toggle("lock");
+}
+
 
