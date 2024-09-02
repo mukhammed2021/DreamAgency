@@ -30,6 +30,18 @@
       &:not(:last-child) {
          margin-bottom: toRem(27);
       }
+
+      & {
+         translate: -40% 0;
+         opacity: 0;
+      }
+      ._watcher-view & {
+         transition:
+            translate 0.5s 0.1s ease-in,
+            opacity 0.2s;
+         translate: 0 0;
+         opacity: 1;
+      }
    }
    // .hero__text
    &__text {
@@ -38,9 +50,33 @@
       &:not(:last-child) {
          margin-bottom: toRem(31);
       }
+
+      & {
+         translate: -70% 0;
+         opacity: 0;
+      }
+      ._watcher-view & {
+         transition:
+            translate 0.75s 0.15s ease-in,
+            opacity 0.2s;
+         translate: 0 0;
+         opacity: 1;
+      }
    }
    // .hero__button
    &__button {
+      translate: -100% 0;
+      opacity: 0;
+
+      ._watcher-view & {
+         transition:
+            background-color 0.3s,
+            color 0.3s,
+            translate 0.9s 0.2s ease-in,
+            opacity 0.5s;
+         translate: 0 0;
+         opacity: 1;
+      }
    }
    // .hero__image
    &__image {
@@ -57,6 +93,12 @@
          width: 61.581137%; /* 444/721 */
          height: 121.194605%; /* 629/519 */
          background: url("/img/hero/decor/02.svg") 0 0 / contain no-repeat;
+
+         scale: 0;
+         ._watcher-view & {
+            transition: scale 1s ease-out 0.34s;
+            scale: 1;
+         }
       }
       &::after {
          z-index: -1;
@@ -65,6 +107,12 @@
          width: 120.249653%; /* 867/721 */
          height: 157.803468%; /* 819/519 */
          background: url("/img/hero/decor/03.svg") 0 0 / contain no-repeat;
+
+         translate: 100% 0;
+         ._watcher-view & {
+            transition: translate 1s;
+            translate: 0 0;
+         }
       }
    }
    // .hero__image-decor
@@ -80,6 +128,12 @@
          width: 80.698217%; /* 581/729 */
          height: 95.953757%; /* 498/519 */
          background: url("/img/hero/decor/01.svg") 0 0 / contain no-repeat;
+
+         scale: 0;
+         ._watcher-view & {
+            transition: scale 1s ease-out 0.25s;
+            scale: 1;
+         }
       }
       img {
          clip-path: url(#clip);
@@ -87,6 +141,12 @@
          height: 100%;
          object-fit: cover;
          aspect-ratio: 721 / 519;
+
+         scale: 0;
+         ._watcher-view & {
+            transition: scale 1s ease-out 0.5s;
+            scale: 1;
+         }
       }
    }
 }

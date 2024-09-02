@@ -9,6 +9,18 @@
       &:not(:last-child) {
          @include fluid-value("margin-bottom", 58, 27, 1300, 320);
       }
+
+      & {
+         translate: 0 50%;
+         opacity: 0;
+         transition:
+            translate 0.35s ease-in 0.1s,
+            opacity 0.2s;
+      }
+      ._watcher-view & {
+         translate: 0 0%;
+         opacity: 1;
+      }
    }
    // .testimonials__items
    &__items {
@@ -26,6 +38,29 @@
 
       display: flex;
       flex-direction: column;
+
+      &:first-child {
+         translate: 0 50%;
+         opacity: 0;
+         transition:
+            translate 0.5s ease-in,
+            opacity 0.3s;
+         ._watcher-view & {
+            translate: 0 0;
+            opacity: 1;
+         }
+      }
+      &:last-child {
+         translate: 0 100%;
+         opacity: 0;
+         transition:
+            translate 0.85s ease-in,
+            opacity 0.3s;
+         ._watcher-view & {
+            translate: 0 0;
+            opacity: 1;
+         }
+      }
    }
    // .testimonials__quotes
    &__quotes {

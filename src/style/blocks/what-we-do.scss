@@ -12,12 +12,20 @@
          height: 100%;
          top: 0;
          translate: -100% 0;
-         left: calc(100% - toRem(72));
+         // left: calc(100% - toRem(72));
          border-radius: 0 toRem(400) 0 0;
          background-color: #ecf7ff;
          z-index: -1;
          @media (max-width: toEm(767.98)) {
             border-radius: 0 toRem(200) 0 0;
+         }
+
+         & {
+            left: -100%;
+            transition: left 0.7s;
+         }
+         ._watcher-view & {
+            left: calc(100% - toRem(72));
          }
       }
       &::after {
@@ -32,12 +40,30 @@
          background-position: bottom right;
          background-size: contain;
          z-index: -2;
+
+         scale: 0;
+         transition: scale 1s;
+         ._watcher-view & {
+            scale: 1;
+         }
       }
    }
    // .business__title
    &__title {
       &:not(:last-child) {
          @include fluid-value("margin-bottom", 95, 47, 1300, 320);
+      }
+
+      & {
+         translate: 0 50%;
+         opacity: 0;
+         transition:
+            translate 0.5s,
+            opacity 0.5s;
+      }
+      ._watcher-view & {
+         translate: 0 0;
+         opacity: 1;
       }
    }
    // .business__body
@@ -56,6 +82,18 @@
          &:not(:last-child) {
             margin-bottom: toRem(15);
          }
+      }
+
+      & {
+         translate: 50% 0;
+         opacity: 0;
+         transition:
+            translate 0.5s 0.5s,
+            opacity 0.5s 0.5s;
+      }
+      ._watcher-view & {
+         translate: 0 0;
+         opacity: 1;
       }
    }
    // .business__wrapper
@@ -77,6 +115,13 @@
       @include flex-center(true);
       @include circle(35);
       border: toRem(2) solid var(--color-black);
+      transition-property: background-color;
+      transition-duration: 0.3s;
+      @media (any-hover: hover) {
+         &:not(.swiper-button-disabled):hover {
+            background-color: var(--color-yellow);
+         }
+      }
       &.swiper-button-disabled {
          border: toRem(2) solid rgba(0, 0, 0, 0.33);
          cursor: auto;
@@ -93,12 +138,36 @@
          svg {
             margin-left: toRem(4);
          }
+
+         & {
+            translate: -50% 0;
+            opacity: 0;
+            transition:
+               translate 0.5s 0.8s,
+               opacity 0.5s 0.8s;
+         }
+         ._watcher-view & {
+            translate: 0 0;
+            opacity: 1;
+         }
       }
       // .business__button--next
       &--next {
          svg {
             rotate: 180deg;
             margin-right: toRem(4);
+         }
+
+         & {
+            translate: -50% 0;
+            opacity: 0;
+            transition:
+               translate 0.5s 1s,
+               opacity 0.5s 1s;
+         }
+         ._watcher-view & {
+            translate: 0 0;
+            opacity: 1;
          }
       }
    }

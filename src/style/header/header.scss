@@ -4,7 +4,12 @@
    top: 0;
    left: 0;
    z-index: 50;
-   background-color: var(--color-white);
+   transition:
+      box-shadow 0.3s,
+      background-color 0.3s;
+   &._header-scroll {
+      box-shadow: rgba(51, 27, 59, 0.15) 0px 3px 3px 0px;
+   }
    // .header__container
    &__container {
       display: flex;
@@ -13,6 +18,10 @@
       justify-content: space-between;
       min-height: toRem(118);
       padding-block: toRem(5);
+      transition: min-height 0.3s;
+      ._header-scroll & {
+         min-height: toRem(80);
+      }
    }
    // .header__menu
    &__menu {
@@ -69,6 +78,9 @@
          transition: height 0.3s;
          .menu-open & {
             height: toRem(118);
+         }
+         ._header-scroll.menu-open & {
+            height: toRem(90);
          }
       }
       .menu-open & {
